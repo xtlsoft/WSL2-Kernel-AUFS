@@ -117,7 +117,7 @@ int enforce = 1;
 #ifndef CONFIG_SECURITY_IPE_DISABLE_AUDIT
 
 /* Module Parameter for Default Behavior on Boot */
-module_param(enforce, int, 1);
+module_param(enforce, int, 0644);
 MODULE_PARM_DESC(enforce, "Integrity Policy Enforcement");
 
 #endif /* CONFIG_SECURITY_IPE_DISABLE_AUDIT */
@@ -125,5 +125,5 @@ MODULE_PARM_DESC(enforce, "Integrity Policy Enforcement");
 int success_audit;
 
 /* Module Parameter for Success Audit on Boot */
-module_param(success_audit, int, 0);
+module_param(success_audit, int, 0644);
 MODULE_PARM_DESC(success_audit, "Integrity Policy Enforcment Successful Audit");
