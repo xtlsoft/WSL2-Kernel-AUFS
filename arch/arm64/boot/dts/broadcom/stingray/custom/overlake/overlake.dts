@@ -39,6 +39,7 @@
 #define ENABLE_FS4_IOMMU	0
 
 #include "../../stingray-board-base.dtsi"
+#include "../../stingray-dmc.dtsi"
 
 / {
 	model = "Overlake";
@@ -51,7 +52,7 @@
 
 		/* Nitro FW, nitro Crash, Bl31, Bl32 and elog */
 		misc_reserve {
-			reg = <0x0 0x8ae00000 0x0 0x4423000>;
+			reg = <0x0 0x8ae00000 0x0 0x4424000>;
 			no-map;
 		};
 
@@ -60,14 +61,29 @@
 			no-map;
 		};
 
-		elog {
-			status = "disabled";
+		tcg-log@C0000000 {
+			reg = <0x00000000 0xC0000000 0x00000000 0x00010000>;
 		};
+	};
+
+	tpm@0 {
+		compatible = "microsoft,ftpm";
+		linux,sml-base = <0x00000000 0xC0000000>;
+		linux,sml-size = <0x00010000>;
+	};
+
+	pmem@980000000 {
+		compatible = "pmem-region";
+		reg = <0x00000009 0x80000000 0x00000000 0x80000000>;
+		volatile;
+		numa-node-id = <0>;
 	};
 };
 
-&idm_elog {
-	reg = <0x8f213000 0x10000>;
+&memory {
+	linux,usable-memory = <
+		0x00000000 0x80000000 0x00000000 0x80000000
+		0x00000008 0x80000000 0x00000001 0x00000000>;
 };
 
 &sdio0 {
@@ -83,12 +99,15 @@
 	};
 };
 
-&qspi {
-	status = "okay";
+&i2c1 {
+	diagbe@57 {
+		compatible = "microsoft,i2c_slave_diagbe";
+		reg = <0x57>;
+	};
 };
 
-&pci_lpm_region {
-	status = "disabled";
+&qspi {
+	status = "okay";
 };
 
 &crypto_mbox {
