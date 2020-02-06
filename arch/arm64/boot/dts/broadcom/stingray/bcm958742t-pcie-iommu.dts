@@ -30,29 +30,11 @@
  *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/dts-v1/;
+#define ENABLE_PAXB_IOMMU 1
+#define ENABLE_PAXC_IOMMU 1
 
-#define NUM_CRYPTO	32
-#define NUM_RAID	8
-#define ENABLE_I2C0	1
-#define NUM_SATA	8
-
-#include "bcm958742-base.dtsi"
+#include "bcm958742t.dts"
 
 / {
-	model = "Stingray SST100 (BCM958742T)";
-};
-
-&i2c0 {
-	pca9505: pca9505@20 {
-		interrupts = <111 1>;
-	};
-};
-
-&gphy0 {
-	enet-phy-lane-swap;
-};
-
-&sdio0 {
-	mmc-ddr-1_8v;
+	model = "Stingray SST100 w/PCIe IOMMU (BCM958742T)";
 };
