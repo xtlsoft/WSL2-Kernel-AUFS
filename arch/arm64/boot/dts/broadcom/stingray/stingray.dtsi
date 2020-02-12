@@ -735,7 +735,7 @@
 			thermal-sensors = <&tmon 0>;
 			trips {
 				cpu-crit {
-					temperature = <105000>;
+					temperature = <100000>;
 					hysteresis = <0>;
 					type = "critical";
 				};
@@ -747,7 +747,7 @@
 			thermal-sensors = <&tmon 1>;
 			trips {
 				cpu-crit {
-					temperature = <105000>;
+					temperature = <100000>;
 					hysteresis = <0>;
 					type = "critical";
 				};
@@ -759,7 +759,7 @@
 			thermal-sensors = <&tmon 2>;
 			trips {
 				cpu-crit {
-					temperature = <105000>;
+					temperature = <100000>;
 					hysteresis = <0>;
 					type = "critical";
 				};
@@ -771,7 +771,7 @@
 			thermal-sensors = <&tmon 3>;
 			trips {
 				cpu-crit {
-					temperature = <105000>;
+					temperature = <100000>;
 					hysteresis = <0>;
 					type = "critical";
 				};
@@ -783,7 +783,7 @@
 			thermal-sensors = <&tmon 4>;
 			trips {
 				cpu-crit {
-					temperature = <105000>;
+					temperature = <100000>;
 					hysteresis = <0>;
 					type = "critical";
 				};
@@ -795,7 +795,7 @@
 			thermal-sensors = <&tmon 5>;
 			trips {
 				cpu-crit {
-					temperature = <105000>;
+					temperature = <100000>;
 					hysteresis = <0>;
 					type = "critical";
 				};
