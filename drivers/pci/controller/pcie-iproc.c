@@ -772,7 +772,6 @@ static void iproc_pcie_perst_ctrl(struct iproc_pcie *pcie, bool assert)
 int iproc_pcie_shutdown(struct iproc_pcie *pcie)
 {
 	iproc_pcie_perst_ctrl(pcie, true);
-	msleep(500);
 
 	return 0;
 }
