@@ -112,6 +112,10 @@
 	};
 };
 
+&idm_elog {
+		reg = <0x8f213000 0x10000>;
+};
+
 &memory {
 	linux,usable-memory = <
 		0x00000000 0x80000000 0x00000000 0x80000000
